@@ -1,20 +1,36 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
-function AddTodo({onCreate}){
-    const [value, setValue] = useState('')
+/* useInputValue - custom Hook */
+function useInputValue(defaultValue= ''){
+    const [value, setValue] = useState(defaultValue)
+
+    return {
+        bind: {
+            value,
+            onChange: event => setValue(event.target.value)
+        },
+        clear: () => setValue(''),
+        value: () => value
+        
+    }
+}
+
+function AddTodo({ onCreate }){
+    const input = useInputValue('')
 
     function submitHandler(event){
         event.preventDefault()
 
-        if (value.trim()) {
-            onCreate(value)
-            setValue('')
+        if (input.value().trim()) {
+            onCreate(input.value())
+            input.clear()
+          //  setValue('')
         }
     }
     return(
     <form style={{ marginBottom: '1rem' }} onSubmit={submitHandler}> {/*inline-  just another way to set styles*/}
-        <input value={value} onChange={event => setValue(event.target.value)}/>
+        <input {...input.bind}/>  {/* spread operator inserts value and onChange to input*/}
             <button type='submit'>Add Todo</button>
         
     </form>

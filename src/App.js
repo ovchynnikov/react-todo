@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TodoList from './Components/TodoList';
 import Context from './context';
 import AddTodo from './Components/AddTodo';
 
 
 function App() {
-  const [todos, setTodos] = React.useState([
-    { id: 1, completed: false, title: 'Buy milk'},
-    { id: 2, completed: true, title: 'Buy apples'},
-    { id: 3, completed: false, title: 'Buy 2 forks'}
-  ])
+  const [todos, setTodos] = React.useState([])
   
+  useEffect(() => {
+    fetch('http://jsonplaceholder.typicode.com/todos?_limit=10')
+    
+     .then(response => response.json())
+     .then(todos => {setTodos(todos)})
+     
+  }, [])  /* empty array is the dependancy list for that callback function request*/
 
 function toggleTodo(id) {
   setTodos(
