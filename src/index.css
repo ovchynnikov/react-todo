@@ -21,3 +21,11 @@ code {
     color: #fff;
     border: none;
 }
+
+ul {
+    padding-left: 0;
+}
+
+.done {
+    text-decoration: line-through;
+}

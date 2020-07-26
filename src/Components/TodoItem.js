@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
+import Context from '../context'
 
 
 // just variation how to style elements
@@ -16,23 +17,36 @@ const styles = {
         marginRight: '1rem' 
     }
 }
- function TodoItem({ todo, index }){
+ function TodoItem({ todo, index, onChange }){
+
+     const { removeItem } = useContext(Context);  {/* in this empty {} we got value from App.js Context.Provider value={{ xxx }}  */}
+     const classes = [];
+
+     if(todo.completed){
+         classes.push('done')
+     }
+    
     return (
         <li style={styles.li}>
-            <span>
-                <input type="checkbox" style={styles.input} onChange={() => console.log(todo.id)}/>
+            <span className={classes.join(' ')}> {/*we use join because className expects string, not an Array*/}
+                <input 
+                type="checkbox" 
+                style={styles.input}
+                checked={todo.completed} 
+                onChange={() => onChange(todo.id)}/>
                 <strong>{index + 1}</strong>
                 &nbsp;{todo.title}
             </span>
 
-            <button className="rm">&times;</button>
+            <button className="rm" onClick={removeItem.bind(null, todo.id)}>&times;</button>
         </li>
     )
 }  
 
 TodoItem.propTypes = {
     todo: PropTypes.object.isRequired,
-    index: PropTypes.number
+    index: PropTypes.number,
+    onChange: PropTypes.func.isRequired
 }
 
 export default TodoItem;
