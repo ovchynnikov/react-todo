@@ -7,13 +7,41 @@
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
-    padding-top: 5rem;
+    padding-top: 15rem;
+    text-align: center;
 }
 
 .modal-body {
     padding: 2rem;
-    width: 400px;
+    width: 66%;
     border-radius: 5px;
     background: #fff;
     height: 200px;
+}
+
+.modal-body h1 {
+    color: cornflowerblue;
+}
+
+.modalCloseButton {
+    background: cornflowerblue;
+    color: #fff;
+    border: none;
+    width: 36%;
+    height: 32px;
+    margin-top: 30px;
+}
+
+
+/* iPhone specific styles*/
+
+@media (max-width: 767px) {
+    .modal {}
+    h1 {
+        font-size: x-large;
+    }
+    .modalCloseButton {
+        width: 66%;
+        margin-top: 15px;
+    }
 }

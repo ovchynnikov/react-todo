@@ -2,15 +2,16 @@ import React, {useEffect} from 'react';
 import TodoList from './Components/TodoList';
 import Context from './context';
 import AddTodo from './Components/AddTodo';
-import Loader from './Components/Loader'
-import Modal from './Components/Modal/Modal'
+import Loader from './Components/Loader';
+import Modal from './Components/Modal/Modal';
+import github from './images/github.png';
 
 function App() {
   const [todos, setTodos] = React.useState([])
   const [loading, setLoading] = React.useState(true)
   
   useEffect(() => {
-    fetch('http://jsonplaceholder.typicode.com/todos?_limit=10')
+    fetch('http://jsonplaceholder.typicode.com/todos?_limit=15')
     
      .then(response => response.json())
      .then(todos => {
@@ -49,13 +50,16 @@ function addTodoItem(title){
 }
   return (
     <Context.Provider value={{ removeItem }}>
+      <div className='titleHeader'><h1><span>React</span> to-do list</h1></div>
+      
        <div className='wrapper'>
-         <h1>React to-do list</h1>
-          <Modal />
+         
+          {  }
          <AddTodo onCreate={addTodoItem}/>
          {loading && <Loader />}
-        {todos.length ? (<TodoList todos={todos} onToggle={toggleTodo} />) : loading ? null : (<p>You don't have todos</p>)}
+        {todos.length ? (<TodoList todos={todos} onToggle={toggleTodo} />) : loading ? null : (<Modal />)}
        </div>
+       <footer><a href="https://github.com/ovchynnikov/react-todo"><img src={github} alt="GitHub image"></img>GitHub</a></footer>
     </Context.Provider>
   );
 }

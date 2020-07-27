@@ -18,8 +18,8 @@ const styles = {
     }
 }
  function TodoItem({ todo, index, onChange }){
-
-     const { removeItem } = useContext(Context);  {/* in this empty {} we got value from App.js Context.Provider value={{ xxx }}  */}
+/* in this empty {} we got value from App.js Context.Provider value={{ xxx }}  */
+     const { removeItem } = useContext(Context);  
      const classes = [];
 
      if(todo.completed){
@@ -38,7 +38,7 @@ const styles = {
                 &nbsp;{todo.title}
             </span>
 
-            <button className="rm" onClick={removeItem.bind(null, todo.id)}>&times;</button>
+            <button className="rm" onClick={removeItem.bind(null, todo.id)}>Remove</button>
         </li>
     )
 }  
