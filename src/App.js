@@ -5,13 +5,14 @@ import AddTodo from './Components/AddTodo';
 import Loader from './Components/Loader';
 import Modal from './Components/Modal/Modal';
 import github from './images/github.png';
+import Lnkdn from './images/Lnkdn.png';
 
 function App() {
   const [todos, setTodos] = React.useState([])
   const [loading, setLoading] = React.useState(true)
   
   useEffect(() => {
-    fetch('http://jsonplaceholder.typicode.com/todos?_limit=15')
+    fetch('http://jsonplaceholder.typicode.com/todos?_limit=5')
     
      .then(response => response.json())
      .then(todos => {
@@ -59,7 +60,9 @@ function addTodoItem(title){
          {loading && <Loader />}
         {todos.length ? (<TodoList todos={todos} onToggle={toggleTodo} />) : loading ? null : (<Modal />)}
        </div>
-       <footer><a href="https://github.com/ovchynnikov/react-todo"><img src={github} alt="GitHub image"></img>GitHub</a></footer>
+       <footer><a href="https://github.com/ovchynnikov/react-todo"><img src={github} alt="GitHub"></img>GitHub</a>
+               <a href="https://www.linkedin.com/in/oleksii-ovchynnikov-159675129/"><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>
+       </footer>
     </Context.Provider>
   );
 }

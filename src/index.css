@@ -13,7 +13,7 @@ code {
     padding-top: 1%;
     margin: 0 auto;
     width: 50%;
-    min-height: 722px;
+    min-height: 720px;
 }
 
 .rm {
@@ -38,6 +38,11 @@ ul li {
 
 img {
     float: left;
+    width: 42px;
+    height: 42px;
+}
+
+.lnkdin {
     width: 42px;
     height: 42px;
 }
@@ -119,15 +124,16 @@ footer {
 footer a {
     color: #fff;
     display: block;
-    padding-top: 37px;
-    padding-right: 10%;
-    width: 15%;
+    padding-top: 40px;
+    padding-right: 29%;
+    /* width: 0%; */
     float: right;
     text-decoration: none;
 }
 
 footer a img {
     margin-top: -8px;
+    margin-right: 10px;
 }
 
 @keyframes lds-dual-ring {
@@ -155,9 +161,12 @@ footer a img {
     .addTodoButton {
         padding: 2px;
     }
+    footer a {
+        padding-right: 13%;
+    }
     footer a img {
         margin-left: 8px;
-        margin-top: -15px;
+        margin-top: -12px;
     }
 }
 
@@ -177,6 +186,9 @@ footer a img {
     .wrapper {
         min-height: 816px;
     }
+    footer a {
+        padding-right: 24%;
+    }
 }
 
 
@@ -194,5 +206,8 @@ footer a img {
     }
     .wrapper {
         min-height: 1156px;
+    }
+    footer a {
+        padding-right: 27%;
     }
 }

@@ -1,3 +1,9 @@
+Developed using React and Responsive css design for iPad, iPad Pro, iPhone X. 
+When page first loaded it will fetch random data from http://jsonplaceholder.typicode.com 
+You can easely delete them and Modal window will Greet you.
+Application doesn't use any store yet. So page re-loading erases all todos.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
