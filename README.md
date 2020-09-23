@@ -1,10 +1,11 @@
 Developed using React and Responsive css design for iPad, iPad Pro, iPhone X. 
-When page first loaded it will fetch random data from http://jsonplaceholder.typicode.com 
-You can easely delete them and Modal window will Greet you.
+When page first loaded Modal window will Greet you. After you can Press green button and it will fetch random dummy data from http://jsonplaceholder.typicode.com 
+You can easely delete them and Modal window will Greet you again.
 Application doesn't use any store yet. So page re-loading erases all todos.
+Authorization added using firebase Auth, token saves to localStorage of your browser and rage refresh make be made without Logout (but Todo list will be erased every time). Logout button deletes token from storage and you need to login again.
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
 
 ## Available Scripts
 
@@ -12,9 +13,9 @@ In the project directory, you can run:
 
 ### `yarn start`
 
-Runs the app in the development mode.<br />
+////Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
+<!--  
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
@@ -72,3 +73,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+-->

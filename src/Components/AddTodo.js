@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 /* useInputValue - custom Hook */
 function useInputValue(defaultValue= ''){
-    const [value, setValue] = useState(defaultValue)
+    const [value, setValue] = useState(defaultValue);
+    
 
     return {
         bind: {
@@ -16,8 +17,15 @@ function useInputValue(defaultValue= ''){
     }
 }
 
-function AddTodo({ onCreate }){
+
+function AddTodo({ onCreate, onClick }){
     const input = useInputValue('')
+    const [fetched, setFetched] = useState(false);
+
+    function FetchDummyValues(){
+        onClick()
+        setFetched(true)
+    }
 
     function submitHandler(event){
         event.preventDefault()
@@ -32,6 +40,7 @@ function AddTodo({ onCreate }){
     <form style={{ marginBottom: '1rem' }} onSubmit={submitHandler}> {/*inline-  just another way to set styles*/}
         <input className='addTodoInput'{...input.bind} placeholder="  Type your next task here and click 'Add Todo' button!"/>  {/* spread operator inserts value and onChange to input*/}
             <button className="addTodoButton" type='submit'>Add Todo</button>
+           {fetched === true ? null : <button className="addDummyButton" type='submit' onClick={FetchDummyValues}>First! Show Test Dummy Todos and List</button> }
         
     </form>
     )

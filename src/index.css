@@ -74,6 +74,39 @@ input:active {
     border: none;
 }
 
+.addDummyButton {
+    width: 50%;
+    height: 47px;
+    font-size: larger;
+    font-weight: 600;
+    color: white;
+    background: rgb(56, 197, 91);
+    border: none;
+    margin-top: 5px;
+    margin-left: 25%;
+}
+
+.loginButton {
+    width: 100%;
+    height: 40px;
+    font-size: larger;
+    font-weight: 600;
+    color: white;
+    background: cornflowerblue;
+    border: none;
+}
+
+.logoutButton {
+    float: right;
+    width: 30%;
+    height: 30px;
+    font-size: larger;
+    font-weight: 500;
+    color: white;
+    background: cornflowerblue;
+    border: none;
+}
+
 .loader-wrapper {
     display: flex;
     justify-content: center;
@@ -132,7 +165,7 @@ footer a {
 }
 
 footer a img {
-    margin-top: -8px;
+    margin-top: -10px;
     margin-right: 10px;
 }
 
@@ -202,7 +235,7 @@ footer a img {
         width: 15%;
     }
     .addTodoInput {
-        width: 98.5%;
+        width: 99.2%;
     }
     .wrapper {
         min-height: 1156px;
