@@ -2,7 +2,7 @@ Developed using React and Responsive css design for iPad, iPad Pro, iPhone X.
 When page first loaded Modal window will Greet you. After you can Press green button and it will fetch random dummy data from http://jsonplaceholder.typicode.com 
 You can easely delete them and Modal window will Greet you again.
 Application doesn't use any store yet. So page re-loading erases all todos.
-Authorization added using firebase Auth, token saves to localStorage of your browser and rage refresh make be made without Logout (but Todo list will be erased every time). Logout button deletes token from storage and you need to login again.
+Authorization added using firebase Auth, token saves to localStorage of your browser and refresh could be made without auto-Logout (but Todo list will be erased every time). Logout button deletes token from storage and you need to login again.
 
 
 <!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
