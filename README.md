@@ -1,8 +1,14 @@
-Developed using React and Responsive css design for iPad, iPad Pro, iPhone X. 
-When page first loaded Modal window will Greet you. After you can Press green button and it will fetch random dummy data from http://jsonplaceholder.typicode.com 
-You can easely delete them and Modal window will Greet you again.
-Application doesn't use any store yet. So page re-loading erases all todos.
-Authorization added using firebase Auth, token saves to localStorage of your browser and refresh could be made without auto-Logout (but Todo list will be erased every time). Logout button deletes token from storage and you need to login again.
+📱 Developed using React Hooks and Responsive css design for iPad, iPad Pro, iPhone X,8,7,6,5/SE. 
+
+When page first loaded Modal window will Greet you. 
+
+Application uses browser LocalStorage. So page refresh is possible without losing the todo list.
+
+Authorization feature added using firebase Auth, token is stored on localStorage of your browser and refresh could be made without auto-Logout.
+
+Logout button deletes token from storage and you need to login again.
+
+You can easely Remove all todos and Modal window will Greet you again.
 
 
 <!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
@@ -11,7 +17,7 @@ Authorization added using firebase Auth, token saves to localStorage of your bro
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn start` / `npm start`
 
 ////Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

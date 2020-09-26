@@ -101,10 +101,10 @@ if(isLoggedIn === true){
          
          {loading && <Loader />}
         {todos.length ? (<TodoList todos={todos} onToggle={toggleTodo} />) : loading ? null : (<Modal />)}
-        <div>
+        
           <button className="logoutButton" onClick={logoutHandler}>Log out</button>
           <button className="removeAllButton" onClick={clearAllHandler}>Remove All</button>
-        </div>
+        
        </div>
        <footer><a href="https://github.com/ovchynnikov/react-todo"><img src={github} alt="GitHub"></img>GitHub</a>
                <a href="https://www.linkedin.com/in/oleksii-ovchynnikov-159675129/"><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>
