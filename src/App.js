@@ -12,23 +12,37 @@ function App() {
   const [todos, setTodos] = React.useState([])
   const [loading, setLoading] = React.useState(true)
   const [isLoggedIn, setLoggedIn] = React.useState(false)
-  const [dummyTodos, setDummyTodos] = React.useState(false)
+
 
     useEffect(() => {
-    
-      fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
-       .then(response => response.json())
-       .then(todos => {
-         setTimeout(() => {
-            setTodos(todos)
-            setLoading(false)
-         }, 1100)
-       } 
-      )
-       
-    }, [])
-        /* empty array is the dependancy list for that callback function request*/
-  
+      const localTodos = localStorage.getItem('todos') || '[]'
+      // console.log('LocalStorage.getItem: ', JSON.parse(localTodos))
+       setTodos(JSON.parse(localTodos))
+       setLoading(false)
+   }, [])
+
+    useEffect(() => {
+      const todoList = JSON.stringify(todos)
+      localStorage.setItem('todos', todoList)
+    }, [todos])
+
+
+
+    // useEffect(() => {
+    //  const localTodos = JSON.parse(localStorage.getItem('todos'))
+    // 
+      // fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+      // .then(response => response.json())
+      // .then(todos => {
+        // setTimeout(() => {
+          //  setTodos(todos)
+          //  setLoading(false)
+        // }, 1100)
+      // } 
+    //  )
+    // 
+    // }, [])
+    // /* empty array is the dependancy list for that callback function request. imitation ComponentDidMount*/
 
 
 function toggleTodo(id) {
@@ -55,7 +69,9 @@ function addTodoItem(title){
     }
 ]))
 }
+
 const localToken = localStorage.getItem('token')
+
 function autoLogin(){
   if(localToken !== null | undefined){
     setLoggedIn(true)
@@ -66,16 +82,14 @@ function onLogin(){
   setLoggedIn(true)
 }
 
-function onFetchDummy(){
-  setDummyTodos(true)
-}
-console.log(isLoggedIn) // ============================== console log 
-
 function logoutHandler(){
   localStorage.removeItem('token')
   window.location.reload();
 }
 
+function clearAllHandler(){
+  setTodos([])
+}
 
 if(isLoggedIn === true){
   return (
@@ -83,11 +97,14 @@ if(isLoggedIn === true){
       <div className='titleHeader'><h1><span>React</span> to-do list</h1></div>
       
        <div className='wrapper'>
-         <AddTodo onCreate={addTodoItem} onClick={onFetchDummy}/>
+         <AddTodo onCreate={addTodoItem} />
          
          {loading && <Loader />}
-        {todos.length && dummyTodos ? (<TodoList todos={todos} onToggle={toggleTodo} />) : loading ? null : (<Modal />)}
-        <button className="logoutButton" onClick={logoutHandler}>Log out</button>
+        {todos.length ? (<TodoList todos={todos} onToggle={toggleTodo} />) : loading ? null : (<Modal />)}
+        <div>
+          <button className="logoutButton" onClick={logoutHandler}>Log out</button>
+          <button className="removeAllButton" onClick={clearAllHandler}>Remove All</button>
+        </div>
        </div>
        <footer><a href="https://github.com/ovchynnikov/react-todo"><img src={github} alt="GitHub"></img>GitHub</a>
                <a href="https://www.linkedin.com/in/oleksii-ovchynnikov-159675129/"><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>

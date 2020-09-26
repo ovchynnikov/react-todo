@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 function useInputValue(defaultValue= ''){
     const [value, setValue] = useState(defaultValue);
     
-
     return {
         bind: {
             value,
@@ -18,15 +17,9 @@ function useInputValue(defaultValue= ''){
 }
 
 
-function AddTodo({ onCreate, onClick }){
+function AddTodo({ onCreate }){
     const input = useInputValue('')
-    const [fetched, setFetched] = useState(false);
-
-    function FetchDummyValues(){
-        onClick()
-        setFetched(true)
-    }
-
+    
     function submitHandler(event){
         event.preventDefault()
 
@@ -40,8 +33,6 @@ function AddTodo({ onCreate, onClick }){
     <form style={{ marginBottom: '1rem' }} onSubmit={submitHandler}> {/*inline-  just another way to set styles*/}
         <input className='addTodoInput'{...input.bind} placeholder="  Type your next task here and click 'Add Todo' button!"/>  {/* spread operator inserts value and onChange to input*/}
             <button className="addTodoButton" type='submit'>Add Todo</button>
-           {fetched === true ? null : <button className="addDummyButton" type='submit' onClick={FetchDummyValues}>First! Show Test Dummy Todos and List</button> }
-        
     </form>
     )
 }

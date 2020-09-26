@@ -14,8 +14,8 @@ export default class Modal extends React.Component {
                     <div className="modal-body">
                         <h1>Welcome to the day-planner app!</h1>
                         <h3>Make your to-do list and be productive!</h3>
-                        <h4><strong>Warning: </strong><i>If page will be refreshed Todo list won't be saved</i></h4>
-                        <button className="modalCloseButton" onClick={() => this.setState({ isOpen: false})}>Close</button>
+                        <h4><strong>Note: </strong><i>You can refresh page, logout and close browser - Todo list will be safe</i></h4>
+                        <button className="modalCloseButton" onClick={() => this.setState({ isOpen: false})}>Next</button>
                     </div>
                 </div>)}
             </React.Fragment>
