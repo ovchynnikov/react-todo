@@ -200,6 +200,9 @@ footer a img {
         width: 90%;
         min-height: 64vh;
     }
+    .modal {
+        padding-top: 6rem !important;
+    }
     .rm {
         width: 22%;
     }
@@ -227,14 +230,17 @@ footer a img {
 @media (max-height: 568px) {
     .wrapper {
         width: 90%;
-        min-height: 69vh;
+        min-height: 62vh;
+    }
+    .modal {
+        padding-top: 6rem !important;
     }
     .titleHeader,
     footer {
         height: 13vh;
     }
     footer {
-        margin-top: 5vh;
+        margin-top: 12vh;
     }
     .rm {
         width: 30%;

@@ -31,7 +31,7 @@ function AddTodo({ onCreate }){
     }
     return(
     <form style={{ marginBottom: '1rem' }} onSubmit={submitHandler}> {/*inline-  just another way to set styles*/}
-        <input className='addTodoInput'{...input.bind} placeholder="  Type your next task here and click 'Add Todo' button!"/>  {/* spread operator inserts value and onChange to input*/}
+        <input className='addTodoInput'{...input.bind} placeholder=" Type your next task here"/>  {/* spread operator inserts value and onChange to input*/}
             <button className="addTodoButton" type='submit'>Add Todo</button>
     </form>
     )
