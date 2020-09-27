@@ -13,7 +13,7 @@
 
 .modal-body {
     padding: 2rem;
-    width: 54%;
+    width: 66%;
     border-radius: 5px;
     background: #fff;
     height: 300px;
@@ -31,6 +31,7 @@
     width: 36%;
     height: 45px;
     font-size: x-large;
+    margin-top: 25px;
 }
 
 
