@@ -1,0 +1,22 @@
+.userImage {
+    border-radius: 20px;
+}
+
+header {
+    background: #000;
+    height: 100px;
+    text-align: center;
+}
+
+header>p {
+    color: white;
+    float: right;
+    padding-right: 2%;
+    margin-top: -2%;
+}
+
+.userImage {
+    float: right;
+    margin-right: 10px;
+    margin-top: -3%;
+}

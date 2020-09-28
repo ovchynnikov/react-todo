@@ -60,10 +60,11 @@ function validateEmail(email) {
                 const response = await Axios.post(url, authData)
 
                 const data = response.data
-        console.log(data)
+                
                 if(data.idToken !== undefined && data.registered === true) {
-                    this.props.onLogin() 
-                }  
+                    this.props.onLogin()                 
+                }
+                localStorage.setItem('userEmail', data.email)  
                 localStorage.setItem('token', data.idToken)
             }
     }

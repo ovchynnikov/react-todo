@@ -16,6 +16,15 @@ code {
     min-height: 630px;
 }
 
+button,
+a {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
 .rm-button {
     background: cornflowerblue;
     color: #fff;
@@ -52,12 +61,19 @@ img {
     height: 30px;
     margin-bottom: 7px;
     margin-top: 10px;
+    border: 0;
     border-color: cornflowerblue;
+    border-bottom: 2px solid cornflowerblue;
+    outline: 0;
+    opacity: 0.8;
 }
 
-.addTodoInput:active {
+.addTodoInput:focus {
     background: #fff;
-    border-color: cornflowerblue;
+    border-color: rgb(136, 166, 223);
+    font-size: large;
+    border-width: 3px;
+    opacity: 1;
 }
 
 input:active {
@@ -110,6 +126,11 @@ input:active {
     /* margin-right: 50px; */
 }
 
+.logoutButton:hover {
+    background: cornflowerblue;
+    color: white;
+}
+
 .removeAllButton {
     float: right;
     width: 30%;
@@ -160,7 +181,8 @@ h1 span {
     max-width: 84%;
 }
 
-.titleHeader,
+header>div.userImage {}
+
 footer {
     background: #000;
     height: 100px;
@@ -217,8 +239,11 @@ footer a img {
     .addTodoButton {
         padding: 2px;
     }
-    .titleHeader {
+    header {
         height: 5rem !important;
+    }
+    header>span {
+        display: none;
     }
     footer a {
         padding-right: 15%;
@@ -243,7 +268,7 @@ footer a img {
     .modal {
         padding-top: 6rem !important;
     }
-    .titleHeader,
+    header,
     footer {
         height: 13vh;
     }

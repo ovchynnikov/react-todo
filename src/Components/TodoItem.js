@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React, {forwardRef, useContext} from 'react';
 import PropTypes from 'prop-types';
-import Context from '../context'
+import Context from '../context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-
-// just variation how to style elements
+// just variation how to style elements inside js
 const styles = {
     li: {
         display: 'flex',
@@ -17,7 +17,7 @@ const styles = {
         marginRight: '1rem' 
     }
 }
- function TodoItem({ todo, index, onChange }){
+ const TodoItem = forwardRef(({ todo, index, onChange }, ref) => {
 /* in this empty {} we got value from App.js Context.Provider value={{ xxx }}  */
      const { removeItem } = useContext(Context);  
      const classes = [];
@@ -27,21 +27,21 @@ const styles = {
      }
     
     return (
-        <li style={styles.li}>
+        <li style={styles.li} ref={ref}>
             <span className={classes.join(' ')}> {/*we use join because className expects string, not an Array*/}
                 <input 
                 type="checkbox" 
                 style={styles.input}
                 checked={todo.completed} 
                 onChange={() => onChange(todo.id)}/>
-                <strong>{index + 1}</strong>
+                {/* <strong>{index + 1}</strong> */}
                 &nbsp;{todo.title}
             </span>
 
-            <button className="rm-button" onClick={removeItem.bind(null, todo.id)}>Remove</button>
+            <button className="rm-button" onClick={removeItem.bind(null, todo.id)}>Remove  <span><FontAwesomeIcon icon="trash"></FontAwesomeIcon></span></button>
         </li>
     )
-}  
+})  
 
 TodoItem.propTypes = {
     todo: PropTypes.object.isRequired,

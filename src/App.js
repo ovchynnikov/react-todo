@@ -7,6 +7,11 @@ import Modal from './Components/Modal/Modal';
 import github from './images/github.png';
 import Lnkdn from './images/Lnkdn.png';
 import LoginForm from './Components/LoginForm/LoginForm';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import Header from './Components/Header/Header';
+
+library.add(faTrash);
 
 function App() {
   const [todos, setTodos] = React.useState([])
@@ -44,6 +49,8 @@ function App() {
     // }, [])
     // /* empty array is the dependancy list for that callback function request. imitation ComponentDidMount*/
 
+let githubUrl = "https://github.com/ovchynnikov/react-todo";
+let linkedInUrl = "https://www.linkedin.com/in/oleksii-ovchynnikov-159675129/"
 
 function toggleTodo(id) {
   setTodos(
@@ -56,11 +63,11 @@ function toggleTodo(id) {
   )
 }
 
-function removeItem(id){
+function removeItem(id) {
   setTodos(todos.filter(todo => todo.id !== id))
 }
 
-function addTodoItem(title){
+function addTodoItem(title) {
   setTodos(todos.concat([
     {
       title,
@@ -72,54 +79,60 @@ function addTodoItem(title){
 
 const localToken = localStorage.getItem('token')
 
-function autoLogin(){
+function autoLogin() {
   if(localToken !== null | undefined){
     setLoggedIn(true)
   }
 }
 
-function onLogin(){
+function onLogin() {
   setLoggedIn(true)
 }
 
-function logoutHandler(){
+function logoutHandler() {
   localStorage.removeItem('token')
+  localStorage.removeItem('userEmail')
   window.location.reload();
 }
 
-function clearAllHandler(){
-  setTodos([])
+function clearAllHandler(e) {
+  console.log(e)
+    setTimeout(()=> { setTodos([]) },
+  200)
 }
 
-if(isLoggedIn === true){
+if (isLoggedIn === true) {
   return (
-    <Context.Provider value={{ removeItem }}>
-      <div className='titleHeader'><h1><span>React</span> to-do list</h1></div>
-      
+    <Context.Provider value={ { removeItem } }>
+      <Header />
        <div className='wrapper'>
          <AddTodo onCreate={addTodoItem} />
-         
-         {loading && <Loader />}
-        {todos.length ? (<TodoList todos={todos} onToggle={toggleTodo} />) : loading ? null : (<Modal />)}
         
-          <button className="logoutButton" onClick={logoutHandler}>Log out</button>
-          <button className="removeAllButton" onClick={clearAllHandler}>Remove All</button>
+         { loading && <Loader /> }
+        { todos.length ? (
+        <TodoList todos={todos} onToggle={toggleTodo} />
+        ) : loading ? null : (<Modal />) }
+        
+        
+          <button className="logoutButton" onClick={e => window.confirm("Are you sure you want to Logout?") && logoutHandler() }>Log out</button>
+          <button className="removeAllButton" 
+          onClick={e => window.confirm("Are you sure you want Remove All items?") && clearAllHandler() }>Remove All</button>
         
        </div>
-       <footer><a href="https://github.com/ovchynnikov/react-todo"><img src={github} alt="GitHub"></img>GitHub</a>
-               <a href="https://www.linkedin.com/in/oleksii-ovchynnikov-159675129/"><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>
+       <footer><a href={githubUrl}><img src={github} alt="GitHub"></img>GitHub</a>
+               <a href={linkedInUrl}><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>
        </footer>
     </Context.Provider>
   );
 } else {
   return (
     <Context.Provider value={{ removeItem }}>
-    <div className='titleHeader'><h1><span>React</span> to-do list</h1></div>
+       <Header />
       <div className='wrapper'>
          <LoginForm onLogin={ onLogin } autoLogin={ autoLogin }/>
       </div>
-      <footer><a href="https://github.com/ovchynnikov/react-todo"><img src={github} alt="GitHub"></img>GitHub</a>
-               <a href="https://www.linkedin.com/in/oleksii-ovchynnikov-159675129/"><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>
+      <footer><a href={githubUrl}><img src={github} alt="GitHub"></img>GitHub</a>
+               <a href={linkedInUrl}><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>
       </footer>
       </Context.Provider>
   )
