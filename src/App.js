@@ -127,13 +127,13 @@ if (isLoggedIn === true) {
 } else {
   return (
     <Context.Provider value={{ removeItem }}>
-       <Header />
+       {/* <Header /> */}
       <div className='wrapper'>
          <LoginForm onLogin={ onLogin } autoLogin={ autoLogin }/>
       </div>
-      <footer><a href={githubUrl}><img src={github} alt="GitHub"></img>GitHub</a>
+      {/* <footer><a href={githubUrl}><img src={github} alt="GitHub"></img>GitHub</a>
                <a href={linkedInUrl}><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>
-      </footer>
+      </footer> */}
       </Context.Provider>
   )
 }

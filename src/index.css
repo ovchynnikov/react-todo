@@ -242,7 +242,7 @@ footer a img {
     header {
         height: 5rem !important;
     }
-    header>span {
+    header>div {
         display: none;
     }
     footer a {

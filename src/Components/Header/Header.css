@@ -8,15 +8,20 @@ header {
     text-align: center;
 }
 
-header>p {
+header>div>p {
     color: white;
+    /* float: right;*/
+    margin-top: -1.4%;
+}
+
+header>div {
     float: right;
-    padding-right: 2%;
-    margin-top: -2%;
+    margin: auto;
+    margin-right: 4%;
 }
 
 .userImage {
-    float: right;
-    margin-right: 10px;
-    margin-top: -3%;
+    margin-left: 15px;
+    margin-top: -60.5%;
+    /* margin: auto; */
 }

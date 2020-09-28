@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Input from '../Input/Input'
 import '../../index.css'
 import Axios from '../../axios/axios-todo';
+import './LoginForm.css'
 
 const REACT_APP_FIREBASE_KEY = process.env.REACT_APP_FIREBASE_KEY
 
@@ -60,12 +61,13 @@ function validateEmail(email) {
                 const response = await Axios.post(url, authData)
 
                 const data = response.data
-                
+
                 if(data.idToken !== undefined && data.registered === true) {
-                    this.props.onLogin()                 
+                    this.props.onLogin()
+                    localStorage.setItem('userEmail', data.email)                 
                 }
-                localStorage.setItem('userEmail', data.email)  
                 localStorage.setItem('token', data.idToken)
+                window.location.reload();
             }
     }
 
