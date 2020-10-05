@@ -19,6 +19,7 @@ code {
 button,
 a {
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button:hover {
@@ -31,6 +32,7 @@ button:hover {
     border: none;
     min-width: 12%;
     height: 30px;
+    border-radius: 5px;
 }
 
 .rm-button-small {
@@ -43,6 +45,7 @@ ul {
 
 ul li {
     border-color: cornflowerblue !important;
+    border-radius: 5px;
 }
 
 i {
@@ -97,6 +100,7 @@ input:active {
     color: white;
     background: cornflowerblue;
     border: none;
+    border-radius: 5px;
 }
 
 li span {
@@ -143,6 +147,7 @@ li span {
     color: white;
     background: cornflowerblue;
     border: none;
+    border-radius: 5px;
 }
 
 .logoutButton {
@@ -155,6 +160,7 @@ li span {
     background: white;
     border: 1px solid cornflowerblue;
     margin-right: 50px;
+    border-radius: 5px;
 }
 
 .logoutButton:hover {
@@ -171,6 +177,7 @@ li span {
     color: white;
     background: cornflowerblue;
     border: none;
+    border-radius: 5px;
 }
 
 .loader-wrapper {
