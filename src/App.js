@@ -4,12 +4,11 @@ import Context from './context';
 import AddTodo from './Components/AddTodo';
 import Loader from './Components/Loader';
 import Modal from './Components/Modal/Modal';
-import github from './images/github.png';
-import Lnkdn from './images/Lnkdn.png';
 import LoginForm from './Components/LoginForm/LoginForm';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 
 library.add(faTrash);
 
@@ -55,8 +54,7 @@ function App() {
     // }, [])
     // /* empty array is the dependancy list for that callback function request. imitation ComponentDidMount*/
 
-let githubUrl = "https://github.com/ovchynnikov/react-todo";
-let linkedInUrl = "https://www.linkedin.com/in/oleksii-ovchynnikov-159675129/"
+
 
 function toggleTodo(id) {
   setTodos(
@@ -129,7 +127,7 @@ function logoutHandler() {
 function clearAllHandler(e) {
   console.log(e)
     setTimeout(()=> { setTodos([]) },
-  200)
+  180)
 }
 
 if (isLoggedIn === true) {
@@ -143,16 +141,11 @@ if (isLoggedIn === true) {
         { todos.length ? (
         <TodoList todos={todos} onToggle={toggleTodo} />
         ) : loading ? null : (<Modal />) }
-        
-        
           <button className="logoutButton" onClick={e => window.confirm("Are you sure you want to Logout?") && logoutHandler() }>Log out</button>
           <button className="removeAllButton" 
           onClick={e => window.confirm("Are you sure you want Remove All items?") && clearAllHandler() }>Remove All</button>
-        
        </div>
-       <footer><a href={githubUrl}><img src={github} alt="GitHub"></img>GitHub</a>
-               <a href={linkedInUrl}><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>
-       </footer>
+       <Footer />
     </Context.Provider>
   );
 } else {
@@ -162,9 +155,7 @@ if (isLoggedIn === true) {
       <div className='wrapper'>
          <LoginForm onLogin={ onLogin } autoLogin={ autoLogin }/>
       </div>
-      {/* <footer><a href={githubUrl}><img src={github} alt="GitHub"></img>GitHub</a>
-               <a href={linkedInUrl}><img className="lnkdin" src={Lnkdn} alt="LinkedIn"></img>LinkedIn</a>
-      </footer> */}
+      {/* <Footer /> */}
       </Context.Provider>
   )
 }

@@ -29,8 +29,8 @@ const styles = {
     
     return (
          <li style={styles.li} ref={ref}>
-            <button className="sort-btn up-button" onClick={upPriority.bind(null, todo.id)}></button>
-            <button className="sort-btn down-button" onClick={downPriority.bind(null, todo.id)}></button>
+            <button title="Up" className="sort-btn up-button" onClick={upPriority.bind(null, todo.id)}></button>
+            <button title="Down" className="sort-btn down-button" onClick={downPriority.bind(null, todo.id)}></button>
 
             <span className={classes.join(' ')}> {/*we use join because className expects string, not an Array*/}
             

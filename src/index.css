@@ -90,7 +90,7 @@ input:active {
 }
 
 .addTodoButton {
-    width: 100%;
+    width: 99.3%;
     height: 40px;
     font-size: larger;
     font-weight: 600;
@@ -105,8 +105,9 @@ li span {
 
 #sort-span {
     display: block;
-    margin-left: -56px;
-    margin-bottom: -15px;
+    margin-left: -2px;
+    margin-bottom: -17px;
+    margin-top: 12px;
     font-weight: bold;
 }
 
@@ -153,7 +154,7 @@ li span {
     color: cornflowerblue;
     background: white;
     border: 1px solid cornflowerblue;
-    /* margin-right: 50px; */
+    margin-right: 50px;
 }
 
 .logoutButton:hover {
