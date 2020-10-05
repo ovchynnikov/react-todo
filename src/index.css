@@ -12,7 +12,7 @@ code {
 .wrapper {
     padding-top: 1%;
     margin: 0 auto;
-    width: 50%;
+    width: 60%;
     min-height: 630px;
 }
 
@@ -33,12 +33,21 @@ button:hover {
     height: 30px;
 }
 
+.rm-button-small {
+    display: none;
+}
+
 ul {
     padding-left: 0;
 }
 
 ul li {
     border-color: cornflowerblue !important;
+}
+
+i {
+    opacity: 0.5;
+    font-size: x-small;
 }
 
 .done {
@@ -90,19 +99,40 @@ input:active {
     border: none;
 }
 
+li span {
+    width: 90%;
+}
 
-/* .addDummyButton {
-    width: 50%;
-    height: 47px;
-    font-size: larger;
-    font-weight: 600;
-    color: white;
-    background: rgb(56, 197, 91);
+#sort-span {
+    display: block;
+    margin-left: -56px;
+    margin-bottom: -15px;
+    font-weight: bold;
+}
+
+.sort-btn {
+    width: 0;
+    height: 0;
+    background: none;
     border: none;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    margin-left: 25%;
-} */
+    padding: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.sort-btn:focus {
+    outline: #fff;
+}
+
+.down-button {
+    margin-right: 3%;
+    border-top: 25px solid rgb(124, 120, 118);
+}
+
+.up-button {
+    margin-left: -7%;
+    border-bottom: 25px solid cornflowerblue;
+}
 
 .loginButton {
     width: 100%;
@@ -224,20 +254,46 @@ footer a img {
 
 @media (max-width: 767px) and (min-height: 569px) {
     .wrapper {
-        width: 90%;
+        width: 83%;
         min-height: 67vh;
+        margin-right: 2%;
+    }
+    ul li {
+        padding-right: 5px !important;
+        padding-left: 2px !important;
     }
     .modal {
         padding-top: 6rem !important;
     }
     .rm-button {
-        min-width: 22%;
+        display: none;
+    }
+    .rm-button-small {
+        display: block;
+        width: 9%;
+        height: 26px;
+        background: cornflowerblue;
+        color: #fff;
+        border: none;
     }
     .addTodoInput {
-        width: 97.5%;
+        width: 115%;
+        margin-left: -17%;
     }
     .addTodoButton {
         padding: 2px;
+        width: 118%;
+        margin-left: -54px;
+    }
+    .up-button {
+        margin-left: -19%;
+    }
+    .down-button {
+        margin-left: -14px;
+    }
+    .sort-btn {
+        width: 8%;
+        height: 26px;
     }
     header {
         height: 5rem !important;
@@ -253,7 +309,11 @@ footer a img {
         margin-top: -12px;
     }
     .removeAllButton {
-        width: 35%;
+        width: 42%;
+    }
+    .logoutButton {
+        width: 42%;
+        margin-left: -53px;
     }
 }
 
@@ -305,7 +365,7 @@ footer a img {
 
 @media (max-width: 1023px) and (min-width: 768px) {
     .wrapper {
-        width: 80%;
+        width: 78%;
     }
     .rm {
         width: 15%;
@@ -318,6 +378,9 @@ footer a img {
     }
     footer a {
         padding-right: 24%;
+    }
+    .up-button {
+        margin-left: -12%;
     }
 }
 

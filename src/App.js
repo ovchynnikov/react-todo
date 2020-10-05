@@ -17,19 +17,25 @@ function App() {
   const [todos, setTodos] = React.useState([])
   const [loading, setLoading] = React.useState(true)
   const [isLoggedIn, setLoggedIn] = React.useState(false)
-
+  const [sortedTodo, setSortedTodo] = React.useState([])
 
     useEffect(() => {
       const localTodos = localStorage.getItem('todos') || '[]'
       // console.log('LocalStorage.getItem: ', JSON.parse(localTodos))
-       setTodos(JSON.parse(localTodos))
+       setTodos(JSON.parse(localTodos).sort((a,b) => b.priority - a.priority))
+       setSortedTodo(JSON.parse(localTodos).sort((a,b) => b.priority - a.priority))
        setLoading(false)
    }, [])
 
+   
+
     useEffect(() => {
-      const todoList = JSON.stringify(todos)
+      
+      //make array sory by priority here
+      const todoList = JSON.stringify(todos.sort((a,b) => b.priority - a.priority));
+      setSortedTodo(JSON.stringify(todos.sort((a,b) => b.priority - a.priority)));
       localStorage.setItem('todos', todoList)
-    }, [todos])
+    }, [sortedTodo, todos])
 
 
 
@@ -67,12 +73,37 @@ function removeItem(id) {
   setTodos(todos.filter(todo => todo.id !== id))
 }
 
+function upPriority(id) {
+  setSortedTodo(
+    todos.map(todo => {
+      if (todo.id === id){
+        
+        todo.priority += 1 
+      }
+      return todo
+    })
+  )
+}
+
+function downPriority(id) {
+  setSortedTodo(
+    todos.map(todo => {
+      if (todo.id === id){
+        todo.priority -= 1 
+      }
+      return todo
+    })
+  )
+}
+
+
 function addTodoItem(title) {
   setTodos(todos.concat([
     {
       title,
       id: Date.now(),
-      completed: false
+      completed: false,
+      priority: 0
     }
 ]))
 }
@@ -103,7 +134,7 @@ function clearAllHandler(e) {
 
 if (isLoggedIn === true) {
   return (
-    <Context.Provider value={ { removeItem } }>
+    <Context.Provider value={ { removeItem, upPriority, downPriority } }>
       <Header />
        <div className='wrapper'>
          <AddTodo onCreate={addTodoItem} />

@@ -12,7 +12,7 @@ export default function Header(){
                     <div>
                      
                      <img className="userImage" src={userImage} alt="user Pic"/>
-                     <p>Hello, {userEmailEdited}!</p>  
+                     <p>Welcome, {userEmailEdited}</p>  
                     </div>
                 </header>
                 </>
